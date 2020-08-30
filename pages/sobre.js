@@ -1,15 +1,17 @@
 import React from 'react'
-import Link from 'next/link'
+import PageTitle from '../components/PageTitle'
 
-const Sobre = () => {
-   return (
-       <div>
-        <h1>Sobre</h1>
-        <Link href='/'>
-            <a>Home</a>
-        </Link>
-       </div>
-   ) 
-}
+const Sobre = () => (
+    <div id="wrapper2">
+        <PageTitle title='Sobre o Caixa de Sugestões'/>
+            <div id="welcome" class="container">
+                <div class="title">
+                    <h2>Caixa de Sugestões</h2>
+                </div>
+                <p>Este é uma versão do <strong>PalpiteBox</strong>; um projeto que utiliza <strong>NextJs, TailwindCSS, MomentJS </strong> e integração realtime com o <strong>Google Spreadsheet</strong>.</p>
+                <p>Construido passo a passo no FullStackMaster Premium.</p>
+            </div>
+        </div>
+)
 
 export default Sobre
