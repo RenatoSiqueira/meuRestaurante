@@ -1,5 +1,5 @@
-import { GoogleSpreadsheet } from ('google-spreadsheet')
-import credentials from ('../../credentials.json')
+import { GoogleSpreadsheet } from 'google-spreadsheet'
+import credentials from '../../credentials.json'
 
 const doc = new GoogleSpreadsheet('1EI_GCUDdyA22ZmAIlNnMemqquMrFz2Uc5nBJBx0kTcc')
 
