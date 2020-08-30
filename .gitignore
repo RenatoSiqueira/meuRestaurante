@@ -2,3 +2,4 @@ node_modules
 .next
 credentials.json
 Template
+.env.local
