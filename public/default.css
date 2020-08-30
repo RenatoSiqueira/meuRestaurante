@@ -317,7 +317,7 @@
 	#header-wrapper
 	{
 		overflow: hidden;
-		padding: 5em 0em;
+		padding: 1em 0em 5em 0em;
 	}
 
 	#header
@@ -433,6 +433,8 @@
 	#wrapper1
 	{
 		background: #FFF;
+		width: '100%';
+		margin: 0;
 	}
 
 	#wrapper2

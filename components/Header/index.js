@@ -18,17 +18,17 @@ const Header = () => {
                     <ul>
                         <li className={router.pathname === '/' ? "current_page_item" : ''}>
                             <Link href='/'>
-                                <a accesskey="1" title="">Principal</a>
+                                <a accessKey="1" title="">Principal</a>
                             </Link>
                         </li>
                         <li className={router.pathname === '/pesquisa' ? "current_page_item" : ''}>
                         <Link href='/pesquisa'>
-                                <a accesskey="2" title="">Pesquisa</a>
+                                <a accessKey="2" title="">Pesquisa</a>
                             </Link>
                         </li>
                         <li className={router.pathname === '/sobre' ? "current_page_item" : ''}>
                             <Link href='/sobre'>
-                                <a accesskey="3" title="">Sobre</a>
+                                <a accessKey="3" title="">Sobre</a>
                             </Link>
                         </li>
                     </ul>
