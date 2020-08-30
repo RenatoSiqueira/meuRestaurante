@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
 
 import PageTitle from '../components/PageTitle'
@@ -9,23 +9,39 @@ import SocialMedia from '../components/SocialMedia'
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 const Index = () => {
+    const [info, setInfo] = useState({})
     const {data, error} = useSWR('/api/get-promo', fetcher)
+
+    const getData = async () => {
+        try {
+            const response = await fetch('/api/get-info')
+            const data = await response.json()
+            setInfo(data)
+        } catch (error) {    }
+    }
+
+    useEffect(() => {
+        getData()
+    }, [])
+    
     return(
-        <div>
+        <>
             <PageTitle title='Seja bem Vindo' />  
-            <Description />
-            <Coupons />      
-        {
-            !data && <p>Loading...</p>
-        }
-        {
-            !error && 
-            data && 
-            data.showCoupon &&
-            <p>{data.message}</p>
-        }
-            <SocialMedia />
-        </div>
+            <Description 
+                title={info.title}
+                message={info.message}
+            />
+            {
+                !error && 
+                data && 
+                data.showCoupon &&
+                <Coupons text={data.message} />
+            }
+            <SocialMedia 
+                twitter={info.twitter}
+                facebook={info.facebook}
+            />
+        </>
     )
 }
 

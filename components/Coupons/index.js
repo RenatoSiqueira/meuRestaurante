@@ -36,6 +36,6 @@ const Coupons = () => (
                 </div>
             </div>
         </div>
-)
+    )
 
 export default Coupons

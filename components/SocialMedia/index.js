@@ -1,17 +1,20 @@
 import React from 'react'
 
-const Footer = () => {
+const Footer = ({twitter, facebook}) => {
     return (
-        <div id="footer" class="container">
-        <div class="title">
-            <h2>Get in touch</h2>
-            <span class="byline">Phasellus nec erat sit amet nibh pellentesque congue</span> </div>
-        <ul class="contact">
-            <li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
-            <li><a href="#" class="icon icon-facebook"><span></span></a></li>
-            <li><a href="#" class="icon icon-dribbble"><span>Pinterest</span></a></li>
-            <li><a href="#" class="icon icon-tumblr"><span>Google+</span></a></li>
-            <li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
+        <div id="footer" className="bg-gray-400">
+        <div className="text-4xl text-white">
+            <h2>Siga-nos nas Redes Sociais</h2>
+        </div>
+        <ul className="contact">
+            {
+                twitter &&
+                <li><a href={`https://twitter.com/${twitter}`} className="icon icon-twitter"><span>Twitter</span></a></li>
+            }
+            {
+                facebook &&
+                <li><a href={`https://www.facebook.com/${facebook}`} className="icon icon-facebook"><span></span></a></li>
+            }
         </ul>
     </div>
     )
