@@ -1,16 +1,13 @@
 import React from 'react'
 import '../css/styles.css'
 
-import Header from '../components/Header'
+import Layout from '../components/Layout'
 
 const MyApp = ({Component, pageProps}) => {
     return (
-        <div>
-            <Header/>
-            <div className='container mx-auto'>
-                <Component {...pageProps} />
-            </div>
-        </div>
+       <Layout>
+            <Component {...pageProps} />
+        </Layout>
     )
 }
 

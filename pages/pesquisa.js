@@ -1,13 +1,31 @@
 import React from 'react'
-import Link from 'next/link'
+import PageTitle from '../components/PageTitle'
 
 const Pesquisa = () => {
+    const save = async () => {
+        const form = {
+            Nome: 'a',
+            Email: 'b',
+            Whatsapp: 'c'
+        }
+        try {
+            const response = await fetch('/api/save', {
+                method: 'POST',
+                body: JSON.stringify(form)
+            })
+            const data = await response.json()
+            console.log(data)
+        } catch (error) {
+                console.log('----',error)
+        }
+    }
     return (
         <div>
+            <PageTitle title='Pesquisa' />
             <h1>Pesquisa</h1>
-            <Link href='/'>
-                <a>Home</a>
-            </Link>
+            <button onClick={save}>
+                Salvar
+            </button>
         </div>
     )
 }
