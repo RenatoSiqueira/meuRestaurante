@@ -1,5 +1,5 @@
 import { GoogleSpreadsheet } from "google-spreadsheet";
-import fromBase64 from "../../lib/base64";
+import { fromBase64 } from "../../lib/base64";
 
 const doc = new GoogleSpreadsheet(process.env.SHEET_DOC_ID);
 
