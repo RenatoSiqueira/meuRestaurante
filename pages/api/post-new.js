@@ -43,5 +43,5 @@ export default async (req, res) => {
     Descrição: data.descricao,
   });
 
-  res.json({ status: true });
+  res.json({ status: true, results: imgUrlInsta });
 };
