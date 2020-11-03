@@ -13,9 +13,16 @@ export default async (req, res) => {
     const sheet = doc.sheetsByIndex[3];
 
     const rows = await sheet.getRows();
-    const pratos = rows.map((each) => each.Pratos);
+    const pratos = rows.map((each) => ({
+      prato: each.Pratos,
+      preco: each.Preços,
+      desc: each.Descrição,
+      teste: each.Teste,
+      foto: each.Foto,
+      instaFoto: each.InstaFoto,
+    }));
 
-    res.json({ pratos });
+    res.json(pratos);
   } catch (error) {
     res.json({
       title: "Seja Bem Vindo -",
