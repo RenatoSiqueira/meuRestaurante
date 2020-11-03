@@ -57,7 +57,7 @@ const Index = () => {
                               {each.prato}
                             </h2>
                             <h1 class="title-font text-lg font-medium text-gray-900 font-bold mb-3">
-                              R$ {each.preco} - {each.teste}
+                              {each.preco} - Teste de Desconto: {each.teste}
                             </h1>
                             <p class="leading-relaxed mb-3">
                               {each?.desc ? each.desc : "Sem Descrição"}
