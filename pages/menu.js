@@ -16,11 +16,16 @@ const Index = () => {
       const getItems = async () => {
         const getUrlInsta = await data.map(async (each) => {
           let newItem = { ...each };
-          if (each.instaFoto) {
+          if (!each.Foto) {
             const imgUrl = await axios.get(each.instaFoto + "?__a=1");
             newItem = {
               ...each,
               imgUrl: imgUrl.data.graphql.shortcode_media.display_url,
+            };
+          } else {
+            newItem = {
+              ...each,
+              imgUrl: each.Foto,
             };
           }
           return newItem;
