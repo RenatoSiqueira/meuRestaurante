@@ -36,30 +36,33 @@ const Index = () => {
     <>
       <PageTitle title="Menu" />
       <div id="wrapper3">
-        <div class="container" style={{ textAlign: "center" }}>
+        <div className="container" style={{ textAlign: "center" }}>
           <div className="title">
             <h2>Pratos</h2>
-            <span class="byline">Conheça Nossos Pratos</span>
-            <section class="text-gray-700 body-font">
-              <div class="container px-5 py-6 mx-auto">
-                <div class="flex flex-wrap -m-4">
+            <span className="byline">Conheça Nossos Pratos</span>
+            <section className="text-gray-700 body-font">
+              <div className="container px-5 py-6 mx-auto">
+                <div className="flex flex-wrap -m-4">
                   {listItems.length > 0 &&
                     listItems.map((each) => (
-                      <div class="p-4 md:w-1/3">
-                        <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
+                      <div className="p-4 md:w-1/3">
+                        <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
                           <img
-                            class="lg:h-48 md:h-36 w-full object-cover object-center"
+                            className="lg:h-48 md:h-36 w-full object-cover object-center"
                             src={each.imgUrl}
                             alt="blog"
                           />
-                          <div class="p-6">
-                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
+                          <div className="p-6">
+                            <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
                               {each.prato}
                             </h2>
-                            <h1 class="title-font text-lg font-medium text-gray-900 font-bold mb-3">
-                              {each.preco} - Teste de Desconto: {each.teste}
+                            <h1 className="title-font text-lg font-medium text-gray-900">
+                              {each.preco} (Desconto de {each.valorDesconto})
                             </h1>
-                            <p class="leading-relaxed mb-3">
+                            <h2 className="title-font font-medium text-gray-900 font-bold mb-3">
+                              {each.precoFinal}
+                            </h2>
+                            <p className="leading-relaxed mb-3">
                               {each?.desc ? each.desc : "Sem Descrição"}
                             </p>
                           </div>

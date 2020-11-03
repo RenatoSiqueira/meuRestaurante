@@ -17,7 +17,8 @@ export default async (req, res) => {
       prato: each.Pratos,
       preco: each.Preços,
       desc: each.Descrição,
-      teste: each.Teste,
+      valorDesconto: each.Desconto,
+      precoFinal: each.PrecoFinal,
       foto: each.Foto,
       instaFoto: each.InstaFoto,
     }));
