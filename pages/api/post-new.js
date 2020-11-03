@@ -18,7 +18,7 @@ export default async (req, res) => {
     try {
       imgUrlFull = await axios.get(data.instaFoto + "?__a=1");
     } catch (error) {
-      res.end("error");
+      res.end(error);
     }
 
     await sheet.addRow({
