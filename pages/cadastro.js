@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PageTitle from "../components/PageTitle";
+import axios from "axios";
 
 const Cadastro = () => {
   const [form, setForm] = useState({
@@ -21,6 +22,15 @@ const Cadastro = () => {
 
   const save = async () => {
     try {
+      let imgUrlFull = null;
+      try {
+        imgUrlFull = await axios.get(form.instaFoto + "?__a=1");
+        if (imgUrlFull.data) {
+          imgUrlFull = imgUrlFull.data.graphql.shortcode_media.display_url;
+        }
+      } catch (error) {}
+
+      form["Foto"] = imgUrlFull;
       const response = await fetch("/api/post-new", {
         method: "POST",
         body: JSON.stringify(form),

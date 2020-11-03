@@ -1,6 +1,5 @@
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { fromBase64 } from "../../lib/base64";
-import axios from "axios";
 
 const doc = new GoogleSpreadsheet(process.env.SHEET_DOC_ID);
 
@@ -12,16 +11,6 @@ export default async (req, res) => {
   await doc.loadInfo();
   const sheet = doc.sheetsByIndex[3];
   const data = JSON.parse(req.body);
-
-  let imgUrlFull = data.instaFoto;
-  let imgUrlInsta = {};
-
-  try {
-    imgUrlInsta = await axios.get(data.instaFoto + "?__a=1");
-    if (imgUrlInsta?.data) {
-      imgUrlFull = imgUrlInsta.data.graphql.shortcode_media.display_url;
-    }
-  } catch (error) {}
 
   await sheet.addRow({
     Pratos: data.Nome,
@@ -39,10 +28,10 @@ export default async (req, res) => {
       style: "currency",
       currency: "BRL",
     }),
-    Foto: imgUrlFull,
+    Foto: data.Foto,
     InstaFoto: data.instaFoto,
     Descrição: data.descricao,
   });
 
-  res.json({ status: true, results: imgUrlInsta });
+  res.json({ status: true });
 };
