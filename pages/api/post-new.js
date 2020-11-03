@@ -15,11 +15,13 @@ export default async (req, res) => {
     const data = JSON.parse(req.body);
 
     let imgUrlFull = data.instaFoto;
+
     try {
       imgUrlFull = await axios.get(data.instaFoto + "?__a=1");
-    } catch (error) {
-      res.end(error);
-    }
+      if (imgUrlFull.data.graphql.shortcode_media.display_url) {
+        imgUrlFull = imgUrlFull.data.graphql.shortcode_media.display_url;
+      }
+    } catch (error) {}
 
     await sheet.addRow({
       Pratos: data.Nome,
@@ -37,7 +39,7 @@ export default async (req, res) => {
         style: "currency",
         currency: "BRL",
       }),
-      Foto: imgUrlFull?.data.graphql.shortcode_media.display_url,
+      Foto: imgUrlFull,
       InstaFoto: data.instaFoto,
       Descrição: data.descricao,
     });
@@ -45,6 +47,6 @@ export default async (req, res) => {
     res.json({ status: true });
   } catch (error) {
     console.log(error);
-    res.end(error);
+    res.json(error);
   }
 };
