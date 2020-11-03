@@ -14,10 +14,11 @@ export default async (req, res) => {
   const data = JSON.parse(req.body);
 
   let imgUrlFull = data.instaFoto;
+  let imgUrlInsta = {};
 
   try {
     imgUrlInsta = await axios.get(data.instaFoto + "?__a=1");
-    if (imgUrlInsta.data) {
+    if (imgUrlInsta?.data) {
       imgUrlFull = imgUrlInsta.data.graphql.shortcode_media.display_url;
     }
   } catch (error) {}
