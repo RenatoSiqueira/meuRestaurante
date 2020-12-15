@@ -38,6 +38,12 @@ const Cadastro = () => {
       });
       await response.json();
       setSuccess(true);
+      setForm({
+        Nome: "",
+        Preco: "",
+        instaFoto: "",
+        descricao: "",
+      });
     } catch (error) {}
   };
 
