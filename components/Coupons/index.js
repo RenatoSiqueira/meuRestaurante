@@ -1,20 +1,23 @@
 import React from "react";
-import Link from "next/link";
+import Image from "next/image";
 
 const Coupons = ({ text }) => (
-  <div id="wrapper3">
-    <div id="portfolio" className="container">
-      <div className="title" style={{ marginBottom: "1rem" }}>
-        <h2>Cupom</h2>
-      </div>
-      <div className="">
-        <div className="box">
-          <p className="text-2xl">{text}</p>
-          <Link href="/pesquisa">
-            <a className="button button-small">Preencher Pesquisa</a>
-          </Link>
-        </div>
-      </div>
+  <div className="max-w-md mx-auto py-10 mt-10 px-8 bg-white shadow-lg rounded-lg">
+    <div className="flex justify-center md:justify-end -mt-16">
+      <Image
+        className="w-20 h-20 object-cover rounded-full border-2 border-indigo-500"
+        alt="Promo Image"
+        src="/form.jpg"
+        width={76}
+        height={80}
+      />
+    </div>
+    <h2 className="text-gray-800 text-2xl mt-2 md:mt-0 md:text-3xl font-semibold">
+      Promoção!
+    </h2>
+    <p className="mt-2 text-gray-600">{text}</p>
+    <div className="flex justify-end mt-4 text-xl font-medium text-indigo-500">
+      Meu Restô
     </div>
   </div>
 );

@@ -1,5 +1,5 @@
 {
-  "name": "palpiteBox",
+  "name": "meuRestaurante",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,10 +15,6 @@
   "keywords": [],
   "author": "Renato Siqueira",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/RenatoSiqueira/palpiteBox/issues"
-  },
-  "homepage": "https://github.com/RenatoSiqueira/palpiteBox#readme",
   "dependencies": {
     "autoprefixer": "^10.0.1",
     "google-spreadsheet": "^3.0.13",

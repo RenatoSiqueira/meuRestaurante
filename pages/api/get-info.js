@@ -12,14 +12,16 @@ export default async (req, res) => {
     await doc.loadInfo();
 
     const sheet = doc.sheetsByIndex[2];
-    await sheet.loadCells(["B6:B7", "B10:B11"]);
+    await sheet.loadCells(["B5:B7", "B10:B11"]);
 
+    const image = sheet.getCellByA1("B5").value;
     const title = sheet.getCellByA1("B6").value;
     const message = sheet.getCellByA1("B7").value;
     const twitter = sheet.getCellByA1("B10").value;
     const facebook = sheet.getCellByA1("B11").value;
 
     res.json({
+      image,
       title,
       message,
       twitter,

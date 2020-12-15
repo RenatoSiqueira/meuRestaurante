@@ -18,7 +18,7 @@ export default async (req, res) => {
     const textoCell = sheet.getCell(2, 1);
 
     res.json({
-      showCoupon: mostrarPromocaoCell.value === "VERDADEIRO",
+      showCoupon: mostrarPromocaoCell.value.toLowerCase() === "verdadeiro",
       message: textoCell.value,
     });
   } catch (error) {

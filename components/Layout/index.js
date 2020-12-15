@@ -1,19 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import Header from '../Header'
-import Copyright from '../Copyright'
+import Header from "../Header";
+import Footer from "../Footer";
 
-const Layout = ({children}) => (
-    <>
-    <link href="http://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-    <link href="default.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
-    <div id="wrapper1">
-        <Header/>
-        {children}
-    </div>
-    <Copyright/>
-    </>
-)
+const Layout = ({ children }) => (
+  <>
+    <Header />
+    {children}
+    <Footer />
+  </>
+);
 
-export default Layout
+export default Layout;
