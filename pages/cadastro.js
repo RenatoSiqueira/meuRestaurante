@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import PageTitle from "../components/PageTitle";
-import axios from "axios";
 
 const Cadastro = () => {
   const [success, setSuccess] = useState(false);
   const [form, setForm] = useState({
-    Nome: "",
-    Preco: "",
-    instaFoto: "",
+    nome: "",
+    preco: "",
+    imagem: "",
     descricao: "",
   });
 
@@ -21,17 +20,6 @@ const Cadastro = () => {
 
   const save = async () => {
     try {
-      let imgUrlFull = null;
-      try {
-        imgUrlFull = await axios.get(form.instaFoto + "?__a=1");
-        if (imgUrlFull.data) {
-          imgUrlFull = imgUrlFull.data.graphql.shortcode_media.display_url;
-        }
-      } catch (error) {
-        alert("Ocorreu um erro..");
-      }
-
-      form["Foto"] = imgUrlFull;
       const response = await fetch("/api/post-new", {
         method: "POST",
         body: JSON.stringify(form),
@@ -39,12 +27,12 @@ const Cadastro = () => {
       await response.json();
       setSuccess(true);
       setForm({
-        Nome: "",
-        Preco: "",
-        instaFoto: "",
+        nome: "",
+        preco: "",
+        imagem: "",
         descricao: "",
       });
-    } catch (error) {}
+    } catch (error) { }
   };
 
   return (
@@ -66,9 +54,9 @@ const Cadastro = () => {
                 className="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-purple-500 text-base px-4 py-2"
                 placeholder="Nome do Prato"
                 type="text"
-                name="Nome"
+                name="nome"
                 onChange={onChange}
-                value={form.Nome}
+                value={form.nome}
               />
             </div>
             <div className="p-2 w-1/2">
@@ -76,19 +64,19 @@ const Cadastro = () => {
                 className="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-purple-500 text-base px-4 py-2"
                 placeholder="Preço"
                 type="text"
-                name="Preco"
+                name="preco"
                 onChange={onChange}
-                value={form.Preco}
+                value={form.preco}
               />
             </div>
             <div className="p-2 w-1/2">
               <input
                 className="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-purple-500 text-base px-4 py-2"
-                placeholder="Url do Instagram"
+                placeholder="Url da Imagem"
                 type="text"
-                name="instaFoto"
+                name="imagem"
                 onChange={onChange}
-                value={form.instaFoto}
+                value={form.imagem}
               />
             </div>
             <div className="p-2 w-full">

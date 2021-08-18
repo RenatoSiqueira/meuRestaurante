@@ -22,15 +22,14 @@ const Sobre = () => (
         </h1>
         <p className="mb-8 leading-relaxed">
           Este é uma versão adaptada do <strong>PalpiteBox</strong>; um projeto
-          que utiliza <strong>NextJs, TailwindCSS, MomentJS </strong>,
-          integração realtime com o <strong>Google Spreadsheet</strong> e
-          recursos da API do <strong>Instagram</strong>.
+          que utiliza <strong>NextJs, TailwindCSS, MomentJS, </strong>
+          integração realtime com o <strong>Google Spreadsheet</strong>.
         </p>
         <p className="mt-2">
           Construido passo a passo no <strong> FullStackMaster Premium</strong>.
         </p>
         <div className="flex justify-center mt-4">
-          <a href="https://lp.devpleno.com/fsm-inscricao/" target="_blank">
+          <a href="https://go.devpleno.com/fsm" target="_blank">
             <button className="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">
               Acessar Curso
             </button>

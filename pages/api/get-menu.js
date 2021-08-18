@@ -14,13 +14,10 @@ export default async (req, res) => {
 
     const rows = await sheet.getRows();
     const pratos = rows.map((each) => ({
-      prato: each.Pratos,
-      preco: each.Preços,
+      prato: each.Prato,
+      preco: each.Preço,
       desc: each.Descrição,
-      valorDesconto: each.Desconto,
-      precoFinal: each.PrecoFinal,
-      foto: each.Foto,
-      instaFoto: each.InstaFoto,
+      imagem: each.Imagem
     }));
 
     res.json(pratos);

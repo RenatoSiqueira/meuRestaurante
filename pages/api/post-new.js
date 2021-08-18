@@ -12,24 +12,17 @@ export default async (req, res) => {
   const sheet = doc.sheetsByIndex[3];
   const data = JSON.parse(req.body);
 
-  await sheet.addRow({
-    Pratos: data.Nome,
-    Preços:
-      "R$ " +
-      data.Preco.toLocaleString("pt-br", {
-        style: "currency",
-        currency: "BRL",
-      }),
-    Desconto: "10%",
-    PrecoFinal: (
-      parseFloat(data.Preco) -
-      (parseFloat(data.Preco) * 10) / 100
-    ).toLocaleString("pt-br", {
+  const transformToReal = (value) => {
+    return value.toLocaleString("pt-br", {
       style: "currency",
       currency: "BRL",
-    }),
-    Foto: data.Foto,
-    InstaFoto: data.instaFoto,
+    })
+  }
+
+  await sheet.addRow({
+    Prato: data.nome,
+    Preco: transformToReal(parseFloat(data.preco)),
+    Imagem: data.imagem,
     Descrição: data.descricao,
   });
 
